@@ -35,11 +35,10 @@ func (r *ACLReceiver) consumeLogs(ctx context.Context) {
 	for {
 		select {
 		case <-ticker.C:
-			// Simula recepción de un log
-			logData := "GET /api/v1/resource 200" // Un log simple con método, recurso y código de estado
+			// I simulate receive a log
+			logData := "GET /api/v1/resource 200"
 
-			// Parseo del log
-			// En un escenario real, esto debería ser más robusto, posiblemente usando regex u otra librería de parsing
+			// Parsing logs
 			parts := strings.Split(logData, " ")
 			if len(parts) < 3 {
 				r.logger.Sugar().Errorf("Log malformed: %s", logData)
@@ -49,7 +48,7 @@ func (r *ACLReceiver) consumeLogs(ctx context.Context) {
 			resource := parts[1]
 			statusCode := parts[2]
 
-			// Genera métricas basadas en el log parseado
+			// Generating metrics
 			metrics := pmetric.NewMetrics()
 			rm := metrics.ResourceMetrics().AppendEmpty()
 			sm := rm.ScopeMetrics().AppendEmpty()
