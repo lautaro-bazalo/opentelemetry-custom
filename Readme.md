@@ -12,8 +12,8 @@ In this moudle you will find three files
 * `factory.go`
 * `aclreceiver.go`
 
-Here the most important is file is the aclreceiver which implement the `start` and `shutdown` methods that handle the receiver.
-Initialy it was made with a ticker system because was take as an example of an scrape interval.
+Here the most important file is the aclreceiver which implement the `start` and `shutdown` methods that handle the receiver.
+Initialy it was made with a ticker system because I was take as an example of an scrape interval.
 
 ## Toolings
 

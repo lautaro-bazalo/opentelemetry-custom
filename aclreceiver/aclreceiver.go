@@ -22,11 +22,12 @@ type ACLReceiver struct {
 }
 
 func (r *ACLReceiver) Start(ctx context.Context, host component.Host) error {
-	// Aquí inicializas la conexión con el stream de logs o cualquier otro setup
+	// I initialize the receiver
 	r.host = host
 	ctx = context.Background()
 	ctx, r.cancel = context.WithCancel(ctx)
 	go r.consumeLogs(ctx)
+
 	return nil
 }
 
